@@ -1,5 +1,4 @@
 import sys
-import Levels
 from textwrap import dedent
 import subprocess as sp
 import os
@@ -111,7 +110,7 @@ class Queen_Of_Darkness(object):
         #Storyline starts here
         print(f"You have entered the {self.roomname} room with the deadly {self.villain}")
 
-        print(dedent(f"""\n\n\t\tSTORYLINE\t\n\nI AM {self.villain} - THE QUEEN OF DARKNESS!!!
+        print(dedent("""\n\n\t\tSTORYLINE\t\n\nI AM {self.villain} - THE QUEEN OF DARKNESS!!!
         You will fear my wrath you wretched mortal.
 
         ***{self.villain} SHOOTS LIGHTING AT YOU****
@@ -129,8 +128,6 @@ Type in the secret number to enter in the control panel ****)"""))
 
     def enter(self):
 
-        self.intro_text()
-        self.play_intro_music()
         self.user_answer = input("Enter the magic word! NOW!    :")
 
         #checking to see if the user's answer matches the word
@@ -179,7 +176,7 @@ class Barbarian(Room):
 
         print(f"You have entered the {self.roomname} room with the deadly {self.villain}")
 
-        print(dedent(f"""\n\n\t\tSTORYLINE\t\n\nI AM {self.villain}!!!
+        print(dedent("""\n\n\t\tSTORYLINE\t\n\nI AM {self.villain} - THE QUEEN OF DARKNESS!!!
         You will fear my wrath you wretched mortal.
 
         ***{self.villain} RUNS AT YOUR WITH HIS GREAT SWORD****
@@ -220,38 +217,8 @@ Type in the secret word to enter and wait! ****)"""))
 
 
 
-class Engine(object):
-    """docstring for Engine."""
-    def __init__(self, arg):
-        super(Engine, self).__init__()
-        self.arg = arg
-        wizard = Evil_Wizard("Oblor")
-        queen = Queen_Of_Darkness("D'LIVIA")
-        barbarian = Barbarian("Thor")
-        #creating dictionary
-        scenes = {
-                'Evil Wizard': wizard.enter(),
-                'Queen Of Darkness': queen.enter(),
-                'Barbarian': barbarian.enter(),
-                }
-
-
-class Map(object):
-    """docstring for Map."""
-    def __init__(self, arg):
-        super(Map, self).__init__()
-        self.room = arg
-        self.color = "Blue"
-        self.start_scene = "Evil Wizard"
-        self.final_scene = "boss"
-
-
-
-
-
 
 
 if __name__ == '__main__':
 
-    obj = Map('Evil Wizard')
-    engine = Engine(obj)
+    obj = Map("Wizard")
